@@ -11,19 +11,23 @@ aws_account_id="$(aws sts get-caller-identity --output text --query 'Account')"
 deployment_env="dev"
 # Project will be deloyed on this region.
 deployment_region="$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')"
+# Add suffix to avoid duplicate bucket names.
+s3_bucket_suffix="${aws_account_id: -4}"
 # S3 bucket for intermediate/temp files during deployment.
-s3_deployment_bucket="$project_name-deployment-$deployment_region"
+s3_deployment_bucket="$project_name-deployment-$deployment_region-$s3_bucket_suffix"
 # S3 bucket for data records storage
-s3_data_records_bucket="$project_name-data-records-$deployment_region"
+s3_data_records_bucket="$project_name-data-records-$deployment_region-$s3_bucket_suffix"
 # Kinesis stream's lambda consumer image repository.
 ecr_lambda_consumer_repo="$project_name-lambda-consumer"
 # Lambda consumer image repository URI.
 ecr_lambda_consumer_repo_uri=$aws_account_id.dkr.ecr.$deployment_region.amazonaws.com/$ecr_lambda_consumer_repo
 # Image Builder AWSTOE component version.
-ib_component_version="1.0.8"
+# If you're about to re-build Nginx/FluentBit AMI(after updating config files),
+# you MUST update this version number.
+ib_component_version="1.0.0"
 # Image Builder image recipe version.
 # If you update ib_component_version, you MUST also update this version.
-ib_image_recipe_version="1.0.8"
+ib_image_recipe_version="1.0.0"
 # Latest Amazon Linux 2 AMI ID. Base image for image builder.
 ib_amz_linux_2_ami="$(aws ssm get-parameters \
   --names '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2' \
@@ -35,6 +39,8 @@ fb_kinesis_stream="$project_name-stream"
 fb_log_level="debug"
 # Enable Nginx or not. Allowed values are: true, false.
 nginx_enable="true"
+# ** SKIP Image Builder steps **, and use this AMI to launch EC2 instances.
+ec2_ami_id=""
 # EC2 instance HTTP listen port.
 ec2_http_port="7891"
 # Fluent Bit cluster instance type/size.
