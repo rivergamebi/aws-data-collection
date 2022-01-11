@@ -99,3 +99,4 @@
     match  *
     region MACRO_FLUENTBIT_OUTPUT_AWS_REGION
     stream MACRO_FLUENTBIT_OUTPUT_KINESIS_STREAM
+    auto_retry_requests true

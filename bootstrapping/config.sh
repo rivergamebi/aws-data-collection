@@ -24,10 +24,10 @@ ecr_lambda_consumer_repo_uri=$aws_account_id.dkr.ecr.$deployment_region.amazonaw
 # Image Builder AWSTOE component version.
 # If you're about to re-build Nginx/FluentBit AMI(after updating config files),
 # you MUST update this version number.
-ib_component_version="1.0.1"
+ib_component_version="1.0.2"
 # Image Builder image recipe version.
 # If you update ib_component_version, you MUST also update this version.
-ib_image_recipe_version="1.0.1"
+ib_image_recipe_version="1.0.2"
 # Latest Amazon Linux 2 AMI ID. Base image for image builder.
 ib_amz_linux_2_ami="$(aws ssm get-parameters \
   --names '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2' \
