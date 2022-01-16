@@ -1,5 +1,5 @@
 ## AWS Data Records Collection
-![alt text](../master/architecture_diagram.png?raw=true)
+![alt text](architecture_diagram.png?raw=true)
 
 ### Deployment Steps:
 
