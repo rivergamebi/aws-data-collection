@@ -48,7 +48,7 @@ ec2_http_port="7891"
 ec2_instance_type="m6g.medium"
 # Fluent Bit instance's key pair name.
 # If you don't want to specify a key pair, leave this variable to empty.
-ec2_instance_key_pair="opalcube-aws-us-west-2-key-pair"
+ec2_instance_key_pair=""
 # Fluent Bit cluster ASG.
 # The ASG always keep 1 instance in running status. you MUST set max capacity greater than min capacity.
 asg_min_capacity=1
@@ -60,7 +60,7 @@ elb_type="application"
 elb_listener_port=8080
 # ELB's ACM certificate that contained custom domain name.
 # If you just want to use HTTP protocal, leave this config variable to empty.
-elb_certificate="arn:aws:acm:us-west-2:027226252545:certificate/9135d3b4-dfc3-48a9-80c4-fce59654af3f"
+elb_certificate=""
 # Whether to enable Global Accelerator.
 aga_enable="true"
 # Kinesis stream mode. Allowed values are: ON_DEMAND, PROVISIONED
