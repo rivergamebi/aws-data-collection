@@ -24,10 +24,10 @@ ecr_lambda_consumer_repo_uri=$aws_account_id.dkr.ecr.$deployment_region.amazonaw
 # Image Builder AWSTOE component version.
 # If you're about to re-build Nginx/FluentBit AMI(after updating configuration files),
 # you MUST update this version number(Must follow "x.x.x" format).
-ib_component_version="1.2.1"
+ib_component_version="1.2.2"
 # Image Builder image recipe version.
 # If you update ib_component_version, you MUST also update this version(with the same format).
-ib_image_recipe_version="1.2.1"
+ib_image_recipe_version="1.2.2"
 # Latest Amazon Linux 2 AMI ID. Base image for image builder.
 # ib_amz_linux_2_ami="/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 ib_amz_linux_2_ami="/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-arm64-gp2"
@@ -51,9 +51,9 @@ ec2_instance_type="m6g.medium"
 ec2_instance_key_pair="opalcube-aws-us-west-1-key-pair"
 # Fluent Bit cluster ASG.
 # The ASG always keep 1 instance in running status. you MUST set max capacity greater than min capacity.
-asg_min_capacity=1
-asg_max_capacity=3
-asg_desired_capacity=1
+asg_min_capacity=2
+asg_max_capacity=4
+asg_desired_capacity=2
 # The type of load balancer. Allowed values are: application, network
 elb_type="application"
 # ELB's listener port. ELB will forward request from elb_listener_port to ec2_http_port.
@@ -67,7 +67,7 @@ aga_enable="true"
 kds_stream_mode="PROVISIONED"
 # Kinesis stream shard count.
 # Only valid when kds_stream_mode is PROVISIONED.
-kds_shard_count=1
+kds_shard_count=2
 # Kinesis data retention period, unit is Hour. Allowed value range: [24, 8760(365 days)]
 kds_retention_hours=24
 # Kinesis Data Firehose.
