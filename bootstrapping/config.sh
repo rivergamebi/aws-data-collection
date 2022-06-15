@@ -73,10 +73,10 @@ kds_retention_hours=24
 # Kinesis Data Firehose.
 # Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination.
 # Allowed value range: [60, 900]
-kdf_buffer_time=60
+kdf_buffer_time=300
 # Buffer incoming data to the specified size, in MiBs, before delivering it to the destination.
 # Allowed value range: [1, 128]
-kdf_buffer_size=1
+kdf_buffer_size=100
 # A prefix that Kinesis Data Firehose evaluates and adds to records before writing them to S3.
 kdf_s3_prefix='aws'
 # Enable AWS Kinesis Agent or not. Allowed values are: true, false.
