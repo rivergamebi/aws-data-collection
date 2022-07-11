@@ -24,10 +24,10 @@ ecr_lambda_consumer_repo_uri=$aws_account_id.dkr.ecr.$deployment_region.amazonaw
 # Image Builder AWSTOE component version.
 # If you're about to re-build Nginx/FluentBit AMI(after updating configuration files),
 # you MUST update this version number(Must follow "x.x.x" format).
-ib_component_version="1.2.2"
+ib_component_version="1.2.3"
 # Image Builder image recipe version.
 # If you update ib_component_version, you MUST also update this version(with the same format).
-ib_image_recipe_version="1.2.2"
+ib_image_recipe_version="1.2.3"
 # Latest Amazon Linux 2 AMI ID. Base image for image builder.
 # ib_amz_linux_2_ami="/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 ib_amz_linux_2_ami="/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-arm64-gp2"
@@ -67,7 +67,7 @@ aga_enable="true"
 kds_stream_mode="PROVISIONED"
 # Kinesis stream shard count.
 # Only valid when kds_stream_mode is PROVISIONED.
-kds_shard_count=2
+kds_shard_count=5
 # Kinesis data retention period, unit is Hour. Allowed value range: [24, 8760(365 days)]
 kds_retention_hours=24
 # Kinesis Data Firehose.
