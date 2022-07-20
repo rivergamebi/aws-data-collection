@@ -10,7 +10,7 @@
             "maxBufferAgeMillis": 30000,
             "maxBufferSizeBytes": 524288,
             "maxBufferSizeRecords": 400,
-            "minTimeBetweenFilePollsMillis": 500,
+            "minTimeBetweenFilePollsMillis": 100,
             "partitionKeyOption": "RANDOM"
         }
     ]
